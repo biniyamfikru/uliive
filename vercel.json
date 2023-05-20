@@ -1,0 +1,20 @@
+{
+    "builds": [
+        {
+            "src": "package.json",
+            "use": "@vercel/node@1.11.0"
+        }
+    ],
+    "routes": [
+        {
+            "handle": "filesystem"
+        },
+        {
+            "src": "/.*",
+            "dest": "index.js"
+        }
+    ],
+    "env": {
+        "NPM_FLAGS": "--legacy-peer-deps"
+    }
+}
