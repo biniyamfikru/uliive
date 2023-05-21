@@ -36,7 +36,7 @@ const Login = () => {
     // useEffect(() => console.log({ auth2: auth }), [])
     return (
         <main className='flex-1 flex flex-col items-center justify-evenly'>
-            <h1 className='font-bold text-2xl'>Welcome to ULIIVE</h1>
+            <h1 className='font-bold text-3xl text-[#222]'>Welcome to ULIIVE</h1>
             <div className='w-full px-6'>
                 <form className='flex flex-col bg-white gap-y-3 py-5 px-3 rounded-[16px]'>
                     <div className='w-full flex flex-col gap-y-3'>
