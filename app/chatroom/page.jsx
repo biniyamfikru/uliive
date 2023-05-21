@@ -77,14 +77,14 @@ const ChatRoom = () => {
                 <div className='flex gap-x-4'>
                     <div className='flex justify-start items-center gap-2'>
                         <img src="/images/dream-profile.png" alt="" />
-                        <span className='font-semibold'>Dream</span>
+                        <span className='font-semibold text-[#222]'>Dream</span>
                     </div>
                     <div className='flex justify-start items-center gap-2 bg-[#1E2439] text-white rounded-[4px] px-2 text-sm'>
                         <BiCheck />
                         <span className='font-semibold'>Following</span>
                     </div>
                 </div>
-                <BsThreeDots className='text-xl' />
+                <BsThreeDots className='text-xl text-[#222]' />
             </div>
             <div className='w-[full] py-2 aspect-[3/2.05] max-h-[fit-content] overflow-scroll flex flex-wrap justify-center items-start gap-3  px-2'>
                 <div className='relative w-[43%] aspect-[4/3]'>

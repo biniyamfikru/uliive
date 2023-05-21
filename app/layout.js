@@ -17,7 +17,6 @@ export default function RootLayout({ children }) {
         <div className='w-full h-screen max-h-screen flex flex-col bg-[#F5FCFF]'>
           <Header />
           {children}
-          <Footer />
         </div>
       </body>
     </html>
