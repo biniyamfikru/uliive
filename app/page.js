@@ -14,17 +14,17 @@ const App = () => {
   const router = useRouter();
   // const [user] = useAuthState(auth);
 
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      // User is logged in, redirect to the homepage
-      router.push('/chatroom');
-    } else router.push('/login')
-  });
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        // User is logged in, redirect to the homepage
+        router.push('/chatroom');
+      } else router.push('/login')
+    });
+  }, [])
 
-  // useEffect(() => {
   //   console.log({ user })
   //   router.push(user ? "/chatroom" : "/login");
-  // }, [])
 
   return (
     <main className='flex-1 flex flex-col items-center justify-start'>

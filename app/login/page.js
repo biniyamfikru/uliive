@@ -6,32 +6,32 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { useRouter } from 'next/navigation';
 import { useFirebaseStore } from '@/store/firebaseStore';
 import firebase, { auth } from '@/firebaseConfig';
-
-const Libra = () => {
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+const Login = () => {
     // const { auth, analytics, firestore } = useFirebaseStore();
     const router = useRouter()
-    const signInWithGoogle = () => {
-        const provider = new firebase.auth.GoogleAuthProvider();
-        auth.signInWithPopup(provider)
+
+    let signInWithGoogle = () => {
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
             .then(result => router.push('/chatroom'))
             .catch(err => console.log({ err }))
     }
-
-    const handleSignUpWithGoogle = () => {
-        const provider = new firebase.auth.GoogleAuthProvider();
-        firebase
-            .auth()
-            .signInWithPopup(provider)
+    let handleSignUpWithGoogle = () => {
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
             .then((result) => {
-                // Handle successful sign-up with Google
                 const user = result.user;
                 console.log('Signed up with Google:', user);
             })
             .catch((error) => {
-                // Handle sign-up error
                 console.error('Error signing up with Google:', error);
             });
     };
+    useEffect(() => {
+    }, [])
+
+
     const [isChecked, setIsChecked] = useState(false)
     // useEffect(() => console.log({ auth2: auth }), [])
     return (
@@ -41,11 +41,11 @@ const Libra = () => {
                 <form className='flex flex-col bg-white gap-y-3 py-5 px-3 rounded-[16px]'>
                     <div className='w-full flex flex-col gap-y-3'>
                         <label className='text-[#222] text-sm text-opacity-50'>Username</label>
-                        <input type='text' className='bg-[#F7F7F7]  text-base rounded-[8px] py-2 px-3 text-[#222] font-bold' value={"hello"} />
+                        <input type='text' className='bg-[#F7F7F7]  text-base rounded-[8px] py-2 px-3 text-[#222] font-bold' />
                     </div>
                     <div className='w-full flex flex-col gap-y-3'>
                         <label className='text-[#222] text-sm text-opacity-50'>Password</label>
-                        <input type='password' className='bg-[#F7F7F7] text-base  rounded-[8px] py-2 px-3 text-[#222] font-bold' value={"hello"} />
+                        <input type='password' className='bg-[#F7F7F7] text-base  rounded-[8px] py-2 px-3 text-[#222] font-bold' />
                     </div>
                     <label className='flex items-center gap-x-2 text-[#222] font-bold'>
                         <input
@@ -81,4 +81,4 @@ const Libra = () => {
     )
 }
 
-export default Libra
+export default Login
